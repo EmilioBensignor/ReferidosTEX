@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1, user-scalable=no">
+	<title>Referidos</title> <!--TITLE-->
+	<!-- Metadatos de SEO -->
+	<meta name="description" content="DESCRIPTION"> <!--DESCRIPTION-->
+	<meta name="robots" content="index,follow">
+	<link rel="canonical" href="<!--canonical-->" />
+	<meta name="HandheldFriendly" content="true">
+	<link rel="shortcut icon" href="favicon.ico" />
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+	<base href="/">
+	<!-- Estilos de página -->
+	<link rel="stylesheet" type="text/css" href="content/css/libs/libs-basicas.css"> <!--Archvio librerias reducidas-->
+	<link rel="stylesheet" type="text/css" href="content/css/styles-referidos-mobile.css">
+	<!--Estilos de la página MOBILE-->
+	<!--Estilos de la página DESKTOP-->
+	<link rel="stylesheet" type="text/css" href="content/css/styles-referidos-desktop.css"
+		media="screen and (min-width: 1024px)">
+</head>
+
+<body>
+	<!--header-->
+	<main>
+		<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="/">Home</a></li>
+				<li class="breadcrumb-item active" aria-current="page" id="crumbtitle">Referidos</li>
+			</ol>
+		</nav>
+		<section class="referidos">
+			<div class="content-01">
+			</div>
+			<div class="hero">
+				<h1>¡Sigue viajando a través de los sabores!</h1>
+				<div class="txt-ref">
+					<p>
+						¡Tu viaje todavía no ha terminado! Comparte tu código de descuento con tus referidos y <b>disfruta de una
+							experiencia gourmet,</b> una aventura culinaria que te hará seguir viajando con los sentidos.
+					</p>
+					<p>
+						<b>¡Regala a tus conocidos este bono de descuento para su próximo viaje!</b>
+					</p>
+				</div>
+			</div>
+		</section>
+		<section class="referidos">
+			<div class="content-02">
+				<div class="info-ref">
+					<div class="content-left">
+						<ol>
+							<li class="li-ref">Comparte este bono de descuento por 100 <!--mon--> a tus conocidos.</li>
+							<li class="li-ref">Cuando alguno active el bono, se activa tu premio</li>
+							<li class="li-ref">¡Listo! Te enviamos el voucher para que disfrutes de tu experiencia gourmet</li>
+						</ol>
+						<div class="stamp-rep">
+							<img src="/content/img/referidos/sticker-bono-<!--seg-->.svg" width="53px" height="53px">
+						</div>
+					</div>
+					<div class="content-right">
+						<div class="counter-inv-ref">
+							<h2>Tus invitaciones</h2>
+							<p><span id="numeroReferidos">0</span>/5</p>
+						</div>
+						<div class="form-ref">
+							<div class="accordionReferidos" id="accordionReferidos"></div>
+							<div id="formAgregar"> <!-- Contenedor para el formulario de agregar referidos -->
+								<form>
+									<div class="inputGroup">
+										<div class="group-fields">
+											<div>
+												<label for="nombre">Nombre del referido</label>
+												<input class="input-ref name-ref" type="text" id="nombre" placeholder="Nombre de referido">
+												<div id="errorNombre" class="error"></div>
+											</div>
+											<div>
+												<label for="mail">Mail del referido</label>
+												<input class="input-ref mail-ref" type="mail" id="mail" placeholder="Mail del referido">
+												<div id="errorMail" class="error"></div>
+											</div>
+										</div>
+										<button id="btnAgregar" class="btn-agregar" type="submit">Agregar</button>
+									</div>
+								</form>
+							</div>
+							<button id="btnEnviarBeneficio" class="btn-enviar-ref" type="submit" style="display: none;">Enviar beneficio</button> <!-- Corregir ID y ocultar inicialmente -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<frameset>
+		<frame id="view_phone"></frame>
+	</frameset>
+
+	<div class="float-wapp" style="display:none;"><a
+			href="https://wa.me/+17542673454?text=Hola,%20Quiero%20hacer%20una%20consulta"><img loading="lazy"
+				src="/content/img/icons/btn-wapp.webp" alt="Ir a ventana de Whatsapp" width="66" height="66"></a></div>
+
+	<footer id="footer" class="footer-pagina"></footer>
+	<script src="content/js/referidos.js"></script>
+	<script type="text/javascript" src="content/js/libs/libs-basicas.js"></script>
+
+	<script>
+		function getCookie(name) {
+			const value = `; ${document.cookie}`;
+			const parts = value.split(`; ${name}=`);
+			if (parts.length === 2) return parts.pop().split(';').shift();
+		}
+
+		var watcherPagina = setInterval(function () {
+			if (window.jQuery) {
+				clearInterval(watcherPagina);
+
+				window.onload = function () {
+					onloadHeader();
+
+					// ACA VA SI SE NECESITA EJECUTAR ALGO EN EL ONLOAD
+
+					if (miAjax != undefined && getCookie('popuppaisYaMostrado') == undefined) {
+						miAjax('/cgi-bin/teip2seg.pl', actualizarPopupSegmento);
+					}
+
+					if ("<!--ape-->" != ""  ){
+						setInterval(function () { actualizarnotificaciones(); }, 5000);
+					}
+
+					$(window).resize(function () {
+						resizeHeader();
+					})
+
+					$('.float-wapp a').click(function (e) {
+						e.preventDefault();
+						if (screen.width < 520) {
+							window.open($('.float-wapp a').attr('href'), 'view_phone', "width=1,height=1");
+						} else {
+							window.open($('.float-wapp a').attr('href'), 'view_phone', "width=500,height=500");
+						}
+					})
+
+				}   //fin window.onload
+
+			}
+		}); //fin watcher jquery
+	</script>
+</body>
+
+</html>

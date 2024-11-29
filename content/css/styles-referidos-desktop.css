@@ -1,0 +1,300 @@
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+main {
+    max-width: 1490px;
+    margin: 0 auto;
+}
+
+a[href^="tel:"] {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    height: -webkit-max-content;
+    height: -moz-max-content;
+    height: max-content;
+}
+
+body {
+    --hero-referidos-desk: url("/content/img/referidos/hero-referidos-desk.webp");
+}
+
+body[data-entorno="tourexperto.com"] {
+    --hero-referidos-desk: url(//imagenes.tourexperto.com/content/img/referidos/hero-referidos-desk.webp);
+}
+
+@media (min-width: 1024px) {
+    .referidos {
+        padding: 0 3.125rem;
+    }
+
+    .referidos:first-of-type {
+        position: relative;
+        padding: 0 3.125rem;
+    }
+
+    .referidos .content-01 {
+        width: 100%;
+        height: 270px;
+        background-image: var(--hero-referidos-desk);
+        border-radius: 18px;
+    }
+
+    .hero {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 55%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: transparent;
+        margin: auto 0;
+    }
+
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .referidos:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .referidos .content-02 {
+        border-radius: 18px 18px 0px 0px;
+        background: var(--DEGRADE-2, linear-gradient(102deg, #2E0049 1.06%, #6C58FE 100%));
+    }
+
+    .content-02 .info-ref {
+        display: grid;
+        grid-template-columns: 32% 65%;
+        justify-content: space-between;
+        align-items: stretch;
+        padding: 3.25rem 2rem;
+    }
+
+    .stamp-rep {
+        right: -15px;
+    }
+
+    .content-left {
+        padding: 1.25rem;
+        margin-bottom: 0;
+    }
+
+    .content-left ol {
+        width: 100%;
+        gap: 2rem;
+    }
+
+    .content-right {
+        width: 100%;
+        gap: 1.875rem;
+        padding: 1.25rem;
+    }
+
+    .content-right .form-ref form {
+        gap: 1.875rem;
+    }
+
+    .group-fields {
+        flex-direction: row;
+    }
+
+    .name-ref::after,
+    .mail-ref::after {
+        left: 10px;
+    }
+
+    .input-ref {
+        padding-left: 2rem;
+    }
+
+    .btn-agregar {
+        max-width: 90px;
+    }
+
+    .btn-enviar-ref {
+        padding: 0.875rem 4rem;
+        margin-top: 0;
+    }
+
+    .select-ref {
+        display: none;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+    }
+
+    .modal-ref {
+        border-radius: 33px;
+        background: var(--DEGRADE-2, linear-gradient(102deg, #2E0049 1.06%, #6C58FE 100%));
+        border-radius: 33px;
+        max-width: 407px;
+        text-align: center;
+    }
+
+    .modal-ref img {
+        margin-top: 16px;
+    }
+
+    .bg-modal-blanco {
+        background: #FFF;
+        border-radius: 33px;
+        padding: 20px;
+    }
+
+    .txt-ref-modal-blanco {
+        color: #FFF;
+        text-align: center;
+        font-size: 1.25rem;
+        font-weight: 700;
+        padding: 0px 35px;
+    }
+
+    .txt-ref-modal {
+        color: #2E0049;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .txt-rosa {
+        color: #D3245C;
+        font-weight: 800;
+    }
+
+    .btn-cerrar-ref {
+        display: flex;
+        justify-content: center;
+    }
+
+    .btn-cerrar-ref button {
+        display: flex;
+        width: 10%;
+        padding: 14.5px 63px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 33px;
+        border: none;
+        background: var(--Violeta, #6C58FE);
+        color: #FFF;
+        font-weight: 700;
+        font-size: 1rem;
+        margin-top: 1%;
+    }
+
+    #selectContainer {
+        display: none;
+    }
+
+    .select-arrow {
+        display: none;
+    }
+
+    .error {
+        font-size: 0.6rem;
+    }
+}
+
+@media only screen and (min-width: 1121px) {
+    .error {
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 1492px) {
+
+    .referidos,
+    .referidos:first-of-type {
+        padding: 0 6.563rem;
+    }
+
+    .hero {
+        width: 50%;
+        padding: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1.125em;
+    }
+
+    .content-left {
+        padding: 1.875rem 1.5rem;
+    }
+
+    .content-left ol li,
+    .content-left ol li::before {
+        font-size: 1rem;
+    }
+
+    .content-left ol li {
+        padding-left: 2.5rem;
+    }
+
+    .content-left ol li::before {
+        width: 1.875rem;
+        height: 1.875rem;
+    }
+
+    .stamp-rep {
+        right: -30px;
+        top: -22px;
+    }
+
+    .stamp-rep img {
+        width: 86px;
+    }
+
+    .content-right {
+        padding: 1.5rem;
+    }
+
+    .content-right .counter-inv-ref h2 {
+        font-size: 1.5rem;
+    }
+
+    .content-right .counter-inv-ref p {
+        padding: 0.625rem 2rem;
+    }
+
+    .inputGroup,
+    .group-fields {
+        gap: 1.094rem;
+    }
+
+    .btn-agregar {
+        width: 110px;
+        max-width: 110px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .errorIcon {
+        width: 12px;
+        height: 12px;
+    }
+
+    .error {
+        font-size: 0.9rem;
+    }
+}

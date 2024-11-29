@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <base href="/">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,user-scalable=no">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="robots" content="index,follow">
+  <meta name="title" content="Solicita Información de Vuelo + Hotel | Tour Experto">
+  <meta name="description"
+    content="Rellena nuestro formulario y recibe información sobre paquetes vuelo + hotel. Personaliza tu viaje con Tour Experto. ¡Tu aventura comienza aquí!">
+  <title>Vuelos + Hotel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+  <link rel="stylesheet" type="text/css" href="content/css/libs/libs-reducidas.css" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="content/css/styles-basicos.css" />
+  <link rel="stylesheet" href="/content/css/vuelo-hotel.css?v=1.2">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <script defer type="text/javascript" src="content/js/libs/libs-reducidas.js"></script>
+</head>
+
+<body>
+  <!--header-->
+  <main>
+    <div class="divBtn">
+      <a href="https://tourexperto.com/" target="_blank" class="irAlInicio"><img src="/content/img/formVueloHotel/icon-arrow.svg" alt=""> Ir al inicio</a>
+    </div>
+    <section class="vueloMasHotel">
+      <div class="imagenVueloHotel">
+        <img src="/content/img/formVueloHotel/Mujer-pasajero.webp">
+      </div>
+      <div class="contenedorFormulario">
+        <div class="headerFormulario">
+          <h2>Vuelo + Hotel</h2>
+          <p>Dejanos los detalles de tu viaje para
+            que podamos enviarte una propuesta.</p>
+        </div>
+        <form id="vueloHotel">
+          <div class="nombrePaisResidencia">
+            <div class="contenedorNombre">
+              <label for="nombre">Nombre</label>
+              <input class="inputNombre" id="nombre" name="nombre" type="text" placeholder="Nombre">
+              <div id="errorNombre" class="error"></div>
+            </div>
+            <div class="contenedorPaisResidencia">
+              <label for="paisResidencia">País de residencia </label>
+              <div class="contenedorSelectPaisResidencia">
+                <select width="100%" class="selectPaisResidencia" name="paisResidencia" id="paisResidencia"
+                  data-placeholder="País de residencia">
+                  <option value=""></option>
+                  <!--lasnacionalidades-->
+                </select>
+              </div>
+              <div id="errorPaisResidencia" class="error"></div>
+            </div>
+          </div>
+          <div class="whatsappMail">
+            <div class="contenedorWhatsapp">
+              <label for="numeroWhatsapp">Número de Whatsapp</label>
+              <div class="areaNumeroWhatsapp">
+                <input class="inputArea" id="area" name="area" type="number" placeholder="Área">
+                <input class="inputNumeroWhatsapp" id="numeroWhatsapp" name="whatsapp" type="number"
+                  placeholder="Número" autocomplete="none">
+              </div>
+              <div id="errorWhatsapp" class="error"></div>
+            </div>
+            <div class="contenedorMail">
+              <label for="mail">Mail</label>
+              <input class="inputMail" id="mail" name="email" type="email" placeholder="Mail">
+              <div id="errorMail" class="error"></div>
+            </div>
+          </div>
+          <div class="fechaSalidaRutas">
+            <div class="contenedorFechaSalida">
+              <label for="fechaSalida">Selector de fechas</label>
+              <div class="contenedorInputsFechas">
+                <input class="inputFecha inputFechaSalida" name="fechaSalida" id="fechaSalida" type="text"
+                  placeholder="Fecha de salida" value="">
+                <input class="inputFecha inputFechaVuelta" name="fechaVuelta" id="fechaVuelta" type="text"
+                  placeholder="Fecha de vuelta" value="">
+              </div>
+              <div id="errorFechas" class="error"></div>
+            </div>
+            <div class="contenedorRutas">
+              <label for="origen">Selector de ruta</label>
+              <div class="contenedorInputsRutas">
+                <div class="contenedorInputOrigen">
+                  <select width="100%" class="selectOrigen" name="origen" id="origen" aria-label="Ingresa origen"
+                    data-placeholder="País o ciudad de origen"></select>
+                </div>
+                <button type="button" onclick="intercambiarOrigenDestino(event)" id="btnCambio" class="btnCambio">
+                  <img src="/content/img/formVueloHotel/cambio-ruta.svg" alt="icono-cambio">
+                </button>
+                <div class="contenedorInputDestino">
+                  <select width="100%" class="selectDestino" name="destino" id="destino" aria-label="Ingresa destino"
+                    data-placeholder="País o ciudad de destino"></select>
+                </div>
+              </div>
+              <div id="errorRutas" class="error"></div>
+            </div>
+          </div>
+          <div>
+            <p class="pLabel">Categoría del hotel</p>
+            <div class="contenedorEstrellas">
+              <div id="opcion3Estrellas" class="opcionEstrellas">
+                <input type="radio" id="3-estrellas" name="estrellasHotel" value="3">
+                <label for="3-estrellas">
+                  <div class="imgEstrellas">
+                    <img id="img3Estrellas" src="/content/img/formVueloHotel/3-estrellas.svg" alt="Hotel 3 Estrellas">
+                  </div>
+                  3 estrellas
+                </label>
+              </div>
+              <div id="opcion4Estrellas" class="opcionEstrellas">
+                <input type="radio" id="4-estrellas" name="estrellasHotel" value="4">
+                <label for="4-estrellas">
+                  <div class="imgEstrellas">
+                    <img id="img4Estrellas" src="/content/img/formVueloHotel/4-estrellas.svg" alt="Hotel 4 Estrellas">
+                  </div>
+                  4 estrellas
+                </label>
+              </div>
+              <div id="opcion5Estrellas" class="opcionEstrellas">
+                <input type="radio" id="5-estrellas" name="estrellasHotel" value="5">
+                <label for="5-estrellas">
+                  <div class="imgEstrellas">
+                    <img id="img5Estrellas" src="/content/img/formVueloHotel/5-estrellas.svg" alt="Hotel 5 Estrellas">
+                  </div>
+                  5 estrellas
+                </label>
+              </div>
+            </div>
+            <div id="errorEstrellas" class="error"></div>
+          </div>
+          <div class="observaciones">
+            <p class="pLabel">Observaciones</p>
+            <textarea name="observaciones" id="observaciones" rows="4" cols="50" placeholder="¿Quieres viajar a más de un destino? ¿Tienes alguna otra duda o comentario?"></textarea>
+          </div>
+          <button type="submit" id="btnSubmit" class="btnSubmit">Enviar</button>
+        </form>
+      </div>
+      <!-- Modal -->
+      <div id="modalForm" class="modalForm">
+        <div class="contenidoModal">
+          <div class="headerModal">
+            <p>¡Se ha enviado el formulario!</p>
+            <span class="cerrar">X</span>
+          </div>
+          <p class="pModal">Uno de nuestros Expertos te contactará para seguir asistiéndote con tu viaje.</p>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <frameset>
+    <frame id="view_phone"></frame>
+  </frameset>
+  <footer id="footer" class="footer-pagina"></footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script defer type="text/javascript" src="/content/js/vuelo-hotel.js?v=1.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script>
+    var watcherPagina = setInterval(function () {
+      if (window.jQuery) {
+        clearInterval(watcherPagina);
+
+        window.onload = function () {
+          onloadHeader();
+
+          $(window).resize(function () {
+            resizeHeader();
+          })
+
+          $('a.contacto-wapp').click(function (e) {
+            e.preventDefault();
+            if (screen.width < 520) {
+              window.open($('a.contacto-wapp').attr('href'), 'view_phone', "width=1,height=1");
+            } else {
+              window.open($('a.contacto-wapp').attr('href'), 'view_phone', "width=500,height=500");
+            }
+          });
+        }   //fin window.onload
+
+      }
+    }); //fin watcher jquery
+  </script>
+</body>
+
+</html>
+
+<!--nacionalidad-->
+<option value="<!--id-->" <!--selected--></option>
+<!--des-->
+</option>
+<!--finnacionalidad-->
