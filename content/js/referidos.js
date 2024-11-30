@@ -79,7 +79,9 @@ document.getElementById('btnAgregar').addEventListener('click', function (event)
       <div>
         <button class="accordion">
           <p>Referido ${referidosCount}: ${nombreInput.value}</p>
-          <span>+</span>
+          <span class="iconToggle">
+            <img src="/content/img/referidos/Icono-Accordion.svg" alt="Icono Accordion" />
+          </span>
         </button>
         <div class="panel">
           <div class="group-fields">
@@ -96,7 +98,7 @@ document.getElementById('btnAgregar').addEventListener('click', function (event)
       </div>
     `;
     accordionReferidos.appendChild(accordionContainer);
-    asignarEventosAccordions(); // Reasignar eventos de accordions
+    asignarEventosAccordions();
     nombreInput.value = '';
     mailInput.value = '';
 
@@ -124,22 +126,53 @@ function asignarEventosAccordions() {
 
 function toggleAccordion() {
   const accordions = document.getElementsByClassName("accordion");
+  const iconToggle = this.querySelector('.iconToggle');
   for (let j = 0; j < accordions.length; j++) {
     const panelToClose = accordions[j].nextElementSibling;
-    const spanToClose = accordions[j].querySelector('span');
     if (panelToClose.classList.contains("open") && accordions[j] !== this) {
       panelToClose.classList.remove("open");
-      spanToClose.textContent = '+';
+      iconToggle.classList.remove("rotate");
     }
   }
   const panel = this.nextElementSibling;
-  const span = this.querySelector('span');
   if (panel.classList.contains("open")) {
     panel.classList.remove("open");
-    span.textContent = '+';
+    iconToggle.classList.remove("rotate");
   } else {
     panel.classList.add("open");
-    span.textContent = '-';
+    iconToggle.classList.add("rotate");
+  }
+}
+
+// Modal script
+const modal = document.getElementById("modalBeneficio");
+const span = document.getElementsByClassName("close")[0];
+
+document.getElementById('btnEnviarBeneficio').addEventListener('click', function () {
+  modal.style.display = "flex";
+  console.log("Beneficio enviado");
+  // Log referidos information
+  for (let i = 1; i <= referidosCount; i++) {
+    const nombre = document.getElementById(`nombre${i}`).value;
+    const mail = document.getElementById(`mail${i}`).value;
+    console.log(`Referido ${i} =  Nombre: ${nombre}, Mail: ${mail}`);
+  }
+  // Reset form
+  document.getElementById('accordionReferidos').innerHTML = '';
+  document.getElementById('numeroReferidos').textContent = '0/5';
+  referidosCount = 0;
+  document.getElementById('formAgregar').style.display = 'block';
+  document.getElementById('btnAgregar').style.display = 'block';
+  document.getElementById('btnEnviarBeneficio').style.display = 'none';
+});
+
+function cerrarModal() {
+  modal.style.display = "none";
+}
+
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
   }
 }
 

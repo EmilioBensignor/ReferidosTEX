@@ -65,11 +65,11 @@
 					<div class="content-right">
 						<div class="counter-inv-ref">
 							<h2>Tus invitaciones</h2>
-							<p><span id="numeroReferidos">0</span>/5</p>
+							<p id="numeroReferidos">0/5</p>
 						</div>
 						<div class="form-ref">
 							<div class="accordionReferidos" id="accordionReferidos"></div>
-							<div id="formAgregar"> <!-- Contenedor para el formulario de agregar referidos -->
+							<div id="formAgregar">
 								<form>
 									<div class="inputGroup">
 										<div class="group-fields">
@@ -88,7 +88,19 @@
 									</div>
 								</form>
 							</div>
-							<button id="btnEnviarBeneficio" class="btn-enviar-ref" type="submit" style="display: none;">Enviar beneficio</button> <!-- Corregir ID y ocultar inicialmente -->
+							<button id="btnEnviarBeneficio" class="btn-enviar-ref" type="submit" style="display: none;">Enviar
+								beneficio</button>
+							<div id="modalBeneficio" class="modal" style="display: none;">
+								<div class="contenidoModal">
+									<button type="button" class="close" onclick="cerrarModal()">&times;</button>
+									<img src="/content/img/referidos/Icono-Beneficio.svg" alt="Icono Beneficio" />
+									<p>¡Compartiste tu bono de descuento a tus referidos!</p>
+									<div>
+										<p>Obtendrás una <span>experiencia gourmet</span> si tus referidos utilizan tu código.</p>
+										<button type="button" onclick="cerrarModal()">Cerrar</button>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
